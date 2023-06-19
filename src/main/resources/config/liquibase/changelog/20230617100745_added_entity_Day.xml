@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20230617100745-1" author="zkuzniar">
+        <createTable tableName="day" remarks="not an ignored comment">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="week_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="week_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20230617100745-1-data" author="zkuzniar" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/day.csv"
+                  separator=";"
+                  tableName="day">
+            <column name="id" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="week_id" type="numeric"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

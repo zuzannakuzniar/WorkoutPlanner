@@ -29,10 +29,6 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.security.oauth2.core.oidc.OidcIdToken;
 import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-
-/**
- * Utility class for testing REST controllers.
- */
 public final class TestUtil {
 
     private static final ObjectMapper mapper = createObjectMapper();
@@ -45,24 +41,10 @@ public final class TestUtil {
         return mapper;
     }
 
-    /**
-     * Convert an object to JSON byte array.
-     *
-     * @param object the object to convert.
-     * @return the JSON byte array.
-     * @throws IOException
-     */
     public static byte[] convertObjectToJsonBytes(Object object) throws IOException {
         return mapper.writeValueAsBytes(object);
     }
 
-    /**
-     * Create a byte array with a specific size filled with specified data.
-     *
-     * @param size the size of the byte array.
-     * @param data the data to put in the byte array.
-     * @return the JSON byte array.
-     */
     public static byte[] createByteArray(int size, String data) {
         byte[] byteArray = new byte[size];
         for (int i = 0; i < size; i++) {
@@ -71,9 +53,6 @@ public final class TestUtil {
         return byteArray;
     }
 
-    /**
-     * A matcher that tests that the examined string represents the same instant as the reference datetime.
-     */
     public static class ZonedDateTimeMatcher extends TypeSafeDiagnosingMatcher<String> {
 
         private final ZonedDateTime date;
@@ -102,18 +81,10 @@ public final class TestUtil {
         }
     }
 
-    /**
-     * Creates a matcher that matches when the examined string represents the same instant as the reference datetime.
-     *
-     * @param date the reference datetime against which the examined string is checked.
-     */
     public static ZonedDateTimeMatcher sameInstant(ZonedDateTime date) {
         return new ZonedDateTimeMatcher(date);
     }
 
-    /**
-     * A matcher that tests that the examined number represents the same value - it can be Long, Double, etc - as the reference BigDecimal.
-     */
     public static class NumberMatcher extends TypeSafeMatcher<Number> {
 
         final BigDecimal value;
@@ -153,18 +124,10 @@ public final class TestUtil {
         }
     }
 
-    /**
-     * Creates a matcher that matches when the examined number represents the same value as the reference BigDecimal.
-     *
-     * @param number the reference BigDecimal against which the examined number is checked.
-     */
     public static NumberMatcher sameNumber(BigDecimal number) {
         return new NumberMatcher(number);
     }
 
-    /**
-     * Verifies the equals/hashcode contract on the domain object.
-     */
     public static <T> void equalsVerifier(Class<T> clazz) throws Exception {
         T domainObject1 = clazz.getConstructor().newInstance();
         assertThat(domainObject1.toString()).isNotNull();
@@ -181,10 +144,7 @@ public final class TestUtil {
         assertThat(domainObject1).hasSameHashCodeAs(domainObject2);
     }
 
-    /**
-     * Create a {@link FormattingConversionService} which use ISO date format, instead of the localized one.
-     * @return the {@link FormattingConversionService}.
-     */
+
     public static FormattingConversionService createFormattingConversionService() {
         DefaultFormattingConversionService dfcs = new DefaultFormattingConversionService();
         DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();
@@ -193,13 +153,6 @@ public final class TestUtil {
         return dfcs;
     }
 
-    /**
-     * Makes a an executes a query to the EntityManager finding all stored objects.
-     * @param <T> The type of objects to be searched
-     * @param em The instance of the EntityManager
-     * @param clss The class type to be searched
-     * @return A list of all found objects
-     */
     public static <T> List<T> findAll(EntityManager em, Class<T> clss) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(clss);

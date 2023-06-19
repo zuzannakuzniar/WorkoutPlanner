@@ -2,9 +2,6 @@ package com.zkuzniar.workoutplanner.service.dto;
 
 import com.zkuzniar.workoutplanner.domain.User;
 
-/**
- * A DTO representing a user, with only the public attributes.
- */
 public class UserDTO {
 
     private String id;

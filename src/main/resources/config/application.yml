@@ -1,19 +1,3 @@
-# ===================================================================
-# Spring Boot configuration.
-#
-# This configuration will be overridden by the Spring profile you use,
-# for example application-dev.yml if you use the "dev" profile.
-#
-# More information on profiles: https://www.jhipster.tech/profiles/
-# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
-# ===================================================================
-
-# ===================================================================
-# Standard Spring Boot properties.
-# Full reference is available at:
-# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
-# ===================================================================
-
 eureka:
   client:
     enabled: true
@@ -31,7 +15,7 @@ eureka:
     status-page-url-path: ${management.endpoints.web.base-path}/info
     health-check-url-path: ${management.endpoints.web.base-path}/health
     metadata-map:
-      zone: primary # This is needed for the load balancer
+      zone: primary
       profile: ${spring.profiles.active}
       version: #project.version#
       git-version: ${git.commit.id.describe:}
@@ -41,21 +25,12 @@ eureka:
 feign:
   hystrix:
     enabled: true
-  # client:
-  #   config:
-  #     default:
-  #       connectTimeout: 5000
-  #       readTimeout: 5000
-
-# See https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
   command:
     default:
       execution:
         isolation:
           strategy: SEMAPHORE
-          # See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
-          # thread:
           #   timeoutInMilliseconds: 10000
   shareSecurityContext: true
 
@@ -83,10 +58,9 @@ management:
       readiness:
         include: readinessState,datasource
     mail:
-      enabled: false # When using the MailService, configure an SMTP server and set this to true
+      enabled: false
   metrics:
     export:
-      # Prometheus is the default metrics backend
       prometheus:
         enabled: true
         step: 60
@@ -113,16 +87,11 @@ spring:
   application:
     name: WorkoutPlanner
   profiles:
-    # The commented value for `active` can be replaced with valid Spring profiles to load.
-    # Otherwise, it will be filled in by maven when building the JAR file
-    # Either way, it can be overridden by `--spring.profiles.active` value passed in the commandline or `-Dspring.profiles.active` set in `JAVA_OPTS`
     active: #spring.profiles.active#
     group:
       dev:
         - dev
         - api-docs
-        # Uncomment to activate TLS for the dev profile
-        #- tls
   jmx:
     enabled: false
   data:
@@ -138,7 +107,6 @@ spring:
       hibernate.cache.use_second_level_cache: false
       hibernate.cache.use_query_cache: false
       hibernate.generate_statistics: false
-      # modify batch size as necessary
       hibernate.jdbc.batch_size: 25
       hibernate.order_inserts: true
       hibernate.order_updates: true
@@ -174,7 +142,7 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: http://localhost:9080/auth/realms/jhipster
+            issuer-uri: http://localhost:9080/auth/realms
         registration:
           oidc:
             client-id: internal
@@ -187,28 +155,12 @@ server:
       cookie:
         http-only: true
 
-# Properties to be exposed on the /info management endpoint
 info:
-  # Comma separated list of profiles that will trigger the ribbon to show
   display-ribbon-on-profiles: 'dev'
 
-# ===================================================================
-# JHipster specific properties
-#
-# Full reference is available at: https://www.jhipster.tech/common-application-properties/
-# ===================================================================
-
-jhipster:
+workoutPlanner:
   clientApp:
     name: 'workoutPlannerApp'
-  # By default CORS is disabled. Uncomment to enable.
-  # cors:
-  #   allowed-origins: "*"
-  #   allowed-methods: "*"
-  #   allowed-headers: "*"
-  #   exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
-  #   allow-credentials: true
-  #   max-age: 1800
   mail:
     from: WorkoutPlanner@localhost
   api-docs:
@@ -228,13 +180,3 @@ jhipster:
       audience:
         - account
         - api://default
-# ===================================================================
-# Application specific properties
-# Add your own application properties here, see the ApplicationProperties class
-# to have type-safe configuration, like in the JHipsterProperties above
-#
-# More documentation is available at:
-# https://www.jhipster.tech/common-application-properties/
-# ===================================================================
-
-# application:

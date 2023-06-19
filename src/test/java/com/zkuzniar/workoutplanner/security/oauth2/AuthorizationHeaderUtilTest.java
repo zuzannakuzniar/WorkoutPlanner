@@ -34,9 +34,6 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * Test class for the {@link AuthorizationHeaderUtil} utility class.
- */
 class AuthorizationHeaderUtilTest {
 
     public static final String VALID_REGISTRATION_ID = "OIDC";

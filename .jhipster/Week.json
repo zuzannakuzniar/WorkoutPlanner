@@ -1,0 +1,34 @@
+{
+  "name": "Week",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "weekOfYear",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "day",
+      "otherEntityRelationshipName": "week",
+      "relationshipName": "day"
+    }
+  ],
+  "entityTableName": "week",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "WorkoutPlanner",
+  "clientRootFolder": "WorkoutPlanner",
+  "databaseType": "sql",
+  "changelogDate": "20230617100746"
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20230617100744-1" author="zkuzniar">
+        <createTable tableName="workout">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="duration" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="day_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_workout__day_id" />
+            </column>
+            <column name="user_id" type="varchar(100)">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20230617100744-1-data" author="zkuzniar" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/workout.csv"
+                  separator=";"
+                  tableName="workout">
+            <column name="id" type="numeric"/>
+            <column name="type" type="string"/>
+            <column name="duration" type="numeric"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

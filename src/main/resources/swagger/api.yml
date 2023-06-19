@@ -25,16 +25,16 @@ components:
       description: OAuth2 authentication with KeyCloak
       flows:
         authorizationCode:
-          authorizationUrl: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/auth
-          tokenUrl: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token
+          authorizationUrl: http://localhost:9080/auth/realms/workoutPlanner/protocol/openid-connect/auth
+          tokenUrl: http://localhost:9080/auth/realms/workoutPlanner/protocol/openid-connect/token
           scopes:
-            jhipster: Jhipster specific claims
+            workoutPlanner: workoutPlanner specific claims
             email: Email claims
             profile: Profile claims
     openId:
       type: openIdConnect
       description: OpenID Connect authentication with KeyCloak
-      openIdConnectUrl: http://localhost:9080/auth/realms/jhipster/.well-known/openid-configuration
+      openIdConnectUrl: http://localhost:9080/auth/realms/workoutPlanner/.well-known/openid-configuration
 security:
-  - oauth: [jhipster, email, profile]
-  - openId: [jhipster, email, profile]
+  - oauth: [workoutPlanner, email, profile]
+  - openId: [workoutPlanner, email, profile]

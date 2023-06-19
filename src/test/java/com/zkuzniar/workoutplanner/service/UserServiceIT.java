@@ -25,9 +25,6 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Integration tests for {@link UserService}.
- */
 @IntegrationTest
 @Transactional
 class UserServiceIT {

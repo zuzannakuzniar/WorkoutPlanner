@@ -12,9 +12,6 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/**
- * Unit tests for {@link UserMapper}.
- */
 class UserMapperTest {
 
     private static final String DEFAULT_LOGIN = "johndoe";

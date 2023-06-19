@@ -1,0 +1,46 @@
+{
+  "name": "Workout",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "Type",
+      "fieldValues": "STRENGH,TRAINING,SWIMMING,RUNNING,BIKE,HIKING,DANCING,WALKING"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "day",
+      "otherEntityRelationshipName": "workout",
+      "relationshipName": "day",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "workout",
+      "relationshipName": "user"
+    }
+  ],
+  "entityTableName": "workout",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "WorkoutPlanner",
+  "clientRootFolder": "WorkoutPlanner",
+  "databaseType": "sql",
+  "changelogDate": "20230617100744"
+}

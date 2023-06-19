@@ -13,10 +13,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
-
-/**
- * A user.
- */
 @Entity
 @Table(name = "jhi_user")
 public class User extends AbstractAuditingEntity implements Serializable {

@@ -7,10 +7,6 @@ import java.time.Instant;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.validation.constraints.*;
-
-/**
- * A DTO representing a user, with his authorities.
- */
 public class AdminUserDTO {
 
     private String id;

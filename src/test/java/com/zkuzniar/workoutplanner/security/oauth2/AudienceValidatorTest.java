@@ -10,10 +10,6 @@ import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.oauth2.jwt.Jwt;
-
-/**
- * Test class for the {@link AudienceValidator} utility class.
- */
 class AudienceValidatorTest {
 
     private final AudienceValidator validator = new AudienceValidator(Arrays.asList("api://default"));

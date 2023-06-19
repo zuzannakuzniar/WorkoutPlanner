@@ -1,0 +1,39 @@
+{
+  "name": "Day",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "weekId",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "week",
+      "otherEntityRelationshipName": "day",
+      "relationshipName": "week"
+    }
+  ],
+  "javadoc": "not an ignored comment",
+  "entityTableName": "day",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "microserviceName": "WorkoutPlanner",
+  "clientRootFolder": "WorkoutPlanner",
+  "databaseType": "sql",
+  "changelogDate": "20230617100745"
+}

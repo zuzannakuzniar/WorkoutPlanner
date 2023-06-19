@@ -36,6 +36,8 @@
     "nativeLanguage": "en",
     "packageFolder": "com/zkuzniar/workoutplanner",
     "jwtSecretKey": "NjYxMjgzYmUxZTQyZDIwMTUwZjY2MWM4MWI3MjU3M2VmMTcyYmJiNzU4MDNkNDUxZTY4NmUxYmI4ZWI1YTY4NzZiMDgyZWY1MmRkZjJiYWE5YzA0M2UzNTA0ZTBjYTRmOGNjNTYzM2MyMmUyNzJmZmQ3YzQwZmE0NjdjN2UxMTY=",
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "entities": ["Workout", "Day", "Week"],
+    "lastLiquibaseTimestamp": 1686996466000
   }
 }

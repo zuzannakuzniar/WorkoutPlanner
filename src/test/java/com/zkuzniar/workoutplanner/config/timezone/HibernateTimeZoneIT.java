@@ -16,9 +16,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Integration tests for the ZoneId Hibernate configuration.
- */
 @IntegrationTest
 class HibernateTimeZoneIT {
 
